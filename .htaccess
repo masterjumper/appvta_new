@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*)$ /agenda_desarrollo/index.php/$1 [L]
+</IfModule>
+#Options FollowSymLinks
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.html index.php
+RewriteEngine On
+
+RewriteCond $1 !^(index\.php|images|styles|scripts|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /agenda_desarrollo/index.php?/$1 [L,QSA]
