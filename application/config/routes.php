@@ -54,13 +54,13 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 */
-$route['default_controller'] = 'login';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['default_controller']    = 'login';
+$route['404_override']          = '';
+$route['translate_uri_dashes']  = FALSE;
 
-$route['logout'] = "/Login/inicio";
-$route['signin'] = "/Login/index";
-$route['successpage'] = "/Login/successpage";
+$route['logout']        = "/Login/inicio";
+$route['signin']        = "/Login/index";
+$route['successpage']   = "/Login/successpage";
 
-$route['inicio'] = "/Login/inicio";
-$route['login'] = "login/verificar";
+//$route['inicio']    = "/Login/inicio";
+//$route['login']     = "login/verificar";

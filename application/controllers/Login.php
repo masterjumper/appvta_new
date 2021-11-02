@@ -24,7 +24,8 @@ class Login extends CI_Controller
     }
 
     public function verificar()
-    {        
+    { echo 'entro?';  
+        /*        
         $usuario    = $this->input->post('usuario');
         $password   = $this->input->post('password');
         //$query      = $this -> MY_Seguridad -> get_usuario_password($usuario);
@@ -57,9 +58,11 @@ class Login extends CI_Controller
                 $data['titulo']             = 'Inicio';
                 $contenido                  = 'contenido/vacio.php';
                 $template                   = $_SESSION['grutem'];
-                $this->$template-> display($contenido, $data);
-            }
+                $this->$template-> display($contenido, $data);                
+            }            
         }
+        */
+        
 /* 
         if (trim($query) == trim($password)) {
             //buscar programas del usuario
@@ -89,6 +92,7 @@ class Login extends CI_Controller
                     //$template           = $_SESSION['grutem'];
                     $this->templateforall->display_error($contenido, $data);
              } */
+             
     }
 
     public function inicio()
@@ -104,7 +108,7 @@ class Login extends CI_Controller
             //$this->templateusuario_inicio->display($contenido, $data);
         }else{
             $this->session->sess_destroy();
-            redirect(base_url());
+            redirect(base_url());            
         }
     }
 
@@ -133,7 +137,7 @@ class Login extends CI_Controller
         $template                   = $_SESSION['grutem'];
         $this->$template-> display($contenido, $data);
        }
-*/
+       */
        /** Custom Validation Method*/
         public function validateUser($userName,$recordCount){
             if ($recordCount != 0){
