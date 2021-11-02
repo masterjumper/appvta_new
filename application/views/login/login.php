@@ -31,8 +31,8 @@
                 </label>
 
                     <div class="stat-cards-info__profit danger">
-                            <?php echo form_error('usuario'); ?>
-                            <?php echo form_error('password'); ?>
+                            <?php //echo form_error('usuario'); ?>
+                            <?php //echo form_error('password'); ?>
                     </div>
                 <!--<a class="link-info forget-link" href="##">Forgot your password?</a>
                 <label class="form-checkbox-wrapper">

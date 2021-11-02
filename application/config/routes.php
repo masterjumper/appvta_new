@@ -63,4 +63,4 @@ $route['signin']        = "/Login/index";
 $route['successpage']   = "/Login/successpage";
 
 //$route['inicio']    = "/Login/inicio";
-//$route['login']     = "login/verificar";
+$route['login']     = "/Login/verificar";

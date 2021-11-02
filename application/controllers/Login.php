@@ -24,7 +24,7 @@ class Login extends CI_Controller
     }
 
     public function verificar()
-    { echo 'entro?';  
+    { echo 'verificar?';  
         /*        
         $usuario    = $this->input->post('usuario');
         $password   = $this->input->post('password');
