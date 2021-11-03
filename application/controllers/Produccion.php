@@ -75,6 +75,7 @@ class Produccion extends CI_Controller
                 $page = 0;
             }
         }else {$page = 0;}
+        
         $filtro                             = $this->input->post('filtro');
         $_SESSION['current_page']           = $page;
         $data['producciones']             = $this -> MY_Produccion ->get_sistemaproduccion_filtro($filtro, $config["per_page"], $page);

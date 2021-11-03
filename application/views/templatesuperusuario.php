@@ -46,8 +46,8 @@
                         <a href="<?php echo base_url().'inicio'; ?>"><i class="fa fa-home" style="font-size: 24px">&nbsp;</i> Inicio</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url().'Planta/predeterminado'?>">
-                            <i class="fa fa-industry" style="font-size: 24px">&nbsp;</i></span>Plantas
+                        <a href="<?php echo base_url().'Producto/predeterminado'?>">
+                            <i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i></span>Productos
                         </a>
                     </li>
                     <li>
