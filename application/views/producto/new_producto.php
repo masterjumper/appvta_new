@@ -4,7 +4,7 @@
         <?php echo form_open(base_url().'producto/save/'); ?>
         <label class="form-label-wrapper">
             <p class="form-label">Codigo </p>
-            <input class="form-input" type="input" required name="procodbar" value="<?php echo set_value('procodbar') ; ?>">
+            <input class="form-input" type="input"  name="procodbar" value="<?php echo set_value('procodbar') ; ?>">
         </label>
         <div class="stat-cards-info__profit danger">
             <?php echo form_error('procodbar'); ?>

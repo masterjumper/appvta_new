@@ -9,11 +9,7 @@
         <label class="form-label-wrapper">
             <p class="form-label">Contraseña</p>
             <input class="form-input" type="input" name="usupass" required value="">
-        </label>
-        <label class="form-label-wrapper">
-            <p class="form-label">Legajo</p>
-            <input class="form-input" type="input" name="usuleg" value="">
-        </label>
+        </label>       
         <label class="form-label-wrapper">
             <p class="form-label">Nombre</p>
             <input class="form-input" type="input" name="usunom" required value="">

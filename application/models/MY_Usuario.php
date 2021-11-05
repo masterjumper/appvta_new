@@ -48,13 +48,12 @@ Class MY_Usuario extends CI_Model
         return $query;
     }
 
-    public function new_usuario($usuid, $usuuser, $usupass, $usuleg, $usunom, $usuape, $usumai, $gruid, $usuest)
+    public function new_usuario($usuid, $usuuser, $usupass, $usunom, $usuape, $usumai, $gruid, $usuest)
     {//, $tarid
         $data = array(
             'usuid'     =>$usuid,
             'usuuser'   =>$usuuser,
             'usupass'   =>$usupass,
-            'usuleg'    =>$usuleg,
             'usunom'    =>$usunom,
             'usuape'    =>$usuape,
             'usumai'    =>$usumai,
@@ -86,8 +85,7 @@ Class MY_Usuario extends CI_Model
     public function save_usuario($username, $password, $usuleg, $nombre, $apellido, $dirmail, $gruid, $usuest) {//,  $tarid, $usuidjer
         $data = array(
             'usuuser'   => $username,
-            'usupass'   => $password,
-            'usuleg'    => $usuleg,
+            'usupass'   => $password,            
             'usunom'    => $nombre,
             'usuape'    => $apellido,
             'usumai'    => $dirmail,
@@ -99,10 +97,9 @@ Class MY_Usuario extends CI_Model
         $this->db->insert('usuarios', $data);
     }
 
-    public function update_usuario($usuid, $usupass,$usuleg, $usunom, $usuape, $usumai, $gruid, $usuest) {//, $tarid, $usuidjer
+    public function update_usuario($usuid, $usupass, $usunom, $usuape, $usumai, $gruid, $usuest) {//, $tarid, $usuidjer
         $data = array(
-            'usupass' => $usupass,
-            'usuleg' => $usuleg,
+            'usupass' => $usupass,            
             'usunom'  => $usunom,
             'usuape'  => $usuape,
             'usumai'  => $usumai,
@@ -166,10 +163,9 @@ Class MY_Usuario extends CI_Model
     }
 
                                         
-    public function update_perfilusuario($usuid, $usupass, $usuleg, $usunom, $usuape, $usumai) {
+    public function update_perfilusuario($usuid, $usupass, $usunom, $usuape, $usumai) {
         $data = array(
-            'usupass' => $usupass,
-            'usuleg'  => $usuleg,
+            'usupass' => $usupass,            
             'usunom'  => $usunom,
             'usuape'  => $usuape,
             'usumai'  => $usumai

@@ -5,14 +5,14 @@ class Producto extends CI_Controller
 {
 
 	/**
-	 * Index Page for this controller.
+	 * Index Page for this contproductoler.
 	 *
 	 * Maps to the following URL
 	 *        http://example.com/index.php/welcome
 	 *    - or -
 	 *        http://example.com/index.php/welcome/index
 	 *    - or -
-	 * Since this controller is set as the default controller in
+	 * Since this contproductoler is set as the default contproductoler in
 	 * config/routes.php, it's displayed at http://example.com/
 	 *
 	 * So any other public methods not prefixed with an underscore will
@@ -80,69 +80,108 @@ class Producto extends CI_Controller
         }else {$page = 0;}        
         $filtro                             = $this->input->post('filtro');
 		$_SESSION['current_page']           = $page;
-		$data['productos']             		= $this -> MY_Producto ->get_producto_filtro($filtro, $config["per_page"], $page);
+		$data['productos']             		= $this -> MY_Producto ->filtro($filtro, $config["per_page"], $page);
         $data['links']                      = $this->pagination->create_links();
         $data['titulo']                     = '<i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i>'.' Productos';
         $contenido                          = 'producto/grilla_producto.php';
         $template                           = $_SESSION['grutem'];
         $this->$template-> display($contenido, $data);		
-		//$data['producto'] 	= $this->MY_Producto->get_all();
-		//$data['caj_dol'] 	= $this->MY_Caja->get_caj_dol();	
+
 	}
 
-	public function update($proid)
-	{
-		$data['titulo'] = 'Producto';
-		$data['producto'] = $this->MY_Producto->get_pro_all($proid);
-		$contenido = 'producto/producto.php';
-		//$data['NotificacionesPendientes']   = 1;
-		$this->templatesuper->display($contenido, $data);
-	}
-
+	
 	public function save()
 	{
-		$proid = $this->input->post('proid');
-		$procodbar = $this->input->post('procodbar');
-		$prodsc = $this->input->post('prodsc');
-		$proimp = $this->input->post('proimp');
-		$this->MY_Producto->set_pro($proid, $procodbar, $prodsc, $proimp);
-		$this->index();
+		
+		$this->form_validation->set_rules('procodbar', 'producto', 'required|max_length[45]');
+		$this->form_validation->set_rules('prodsc', 'producto', 'required|max_length[45]');
+		$this->form_validation->set_rules('proimp', 'producto', 'required|numeric');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            if($_SESSION['breadcumb'] === 'new'){
+                $data['titulo']             = '<i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i>'.' Productos';
+                $contenido 	                = 'producto/new_producto.php';
+                $template                   = $_SESSION['grutem'];
+                $this->$template-> display($contenido, $data);
+            }else{
+                $proid                		= $this->input->post('proid');
+                $_SESSION['current_page']   = $this->uri->segment(3);
+                $data['producto']          	= $this->MY_producto->get($proid);
+                $data['titulo']             = '<i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i>'.' Productos';
+                $contenido 	                = 'producto/producto.php';
+                $template                   = $_SESSION['grutem'];
+                $this->$template-> display($contenido, $data);
+            }
+        }
+        else
+        {
+            if($_SESSION['breadcumb'] === 'new'){
+                $proid            	= $this->MY_Ultimos_Numeros->get_Ultimo_Numero('producto');
+                $procodbar 			= $this->input->post('procodbar');
+				$prodsc 			= $this->input->post('prodsc');
+				$proimp 			= $this->input->post('proimp');
+                $this->MY_Producto->save($proid, $procodbar, $prodsc, $proimp);
+                $proid            	= $proid + 1;
+                $this->MY_Ultimos_Numeros->update_Ultimo_Numero('producto', $proid);
+                $this->session->set_flashdata('success', 'Se Agrego con Exito');
+                redirect(base_url()."producto");
+            }else{
+                $proid 		= $this->input->post('proid');
+				$procodbar 	= $this->input->post('procodbar');
+				$prodsc 	= $this->input->post('prodsc');
+				$proimp 	= $this->input->post('proimp');
+				$this->MY_Producto->set($proid, $procodbar, $prodsc, $proimp);
+                $this->session->set_flashdata('success', 'Se Actualizo con Exito');
+                redirect(base_url()."producto");
+            }
+
+        }
 	}
 
-	public function save_new()
-	{
-		$procodbar = $this->input->post('procodbar');
-		$prodsc = $this->input->post('prodsc');
-		$proimp = $this->input->post('proimp');
-		$proid = $this->MY_Ultimos_Numeros->get_Ultimo_Numero('producto');
-		$this->MY_Producto->save_new($proid, $procodbar, $prodsc, $proimp);
-		$proid = $proid + 1;
-		$this->MY_Ultimos_Numeros->update_Ultimo_Numero('producto', $proid);
-		$this->index();
-	}
-
-	public function new_producto()
-	{
-		$data['titulo'] = 'Producto';
-		$contenido = 'producto/new_producto.php';
-		//$data['NotificacionesPendientes']   = 1;
-		$this->templatesuper->display($contenido, $data);
-	}
+ 	public function borrar($proid)
+    {   
+		if($this->session->userdata('usuid')) {
+            $this->session->set_flashdata('delete', $proid);
+            redirect(base_url() . "producto");
+        }else{
+            redirect(base_url());
+        }
+    }
 
 	public function delete($proid)
-	{
-		$this->MY_Producto->delete_pro($proid);
-		$this->index();
-	}
+    {
+        $this -> MY_Producto ->delete($proid);
+        redirect(base_url()."producto");
+    }
 
-	public function filtro (){
-		$data['titulo'] 	= 'Producto';
-		$filtro_procodbar   = $this->input->post('filtro_procodbar');
-		$filtro_prodsc      = $this->input->post('filtro_prodsc');
-		$data['caj_dol'] 	= $this->MY_Caja->get_caj_dol();
-		$data['producto']	= $this->MY_Producto->get_producto_filtro($filtro_procodbar, $filtro_prodsc);
-		$contenido = 'producto/grilla_producto.php';
-		$this->templatesuper->display($contenido, $data);
-	}
+    public function update($proid)
+    {
+        if($this->session->userdata('usuid')) {
+            $_SESSION['breadcumb'] = 'update';
+            $_SESSION['current_page'] = $this->uri->segment(3);
+            $data['producto'] = $this->MY_Producto->get($proid);            
+            $data['titulo']                     = '<i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i>'.' Productos';
+            $contenido = 'producto/producto.php';
+            $template = $_SESSION['grutem'];
+            $this->$template->display($contenido, $data);
+        }else{
+            redirect(base_url());
+        }
+    }
 
+	public function new_producto()
+    {
+        if($this->session->userdata('usuid')) {
+            $_SESSION['breadcumb'] = 'new';
+            $data['titulo']        = '<i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i>'.'Nuevo Producto';            
+            $contenido = 'producto/new_producto.php';
+            $template = $_SESSION['grutem'];
+            $this->$template->display($contenido, $data);
+        }else{
+            redirect(base_url());
+        }
+    }
+
+	
 }

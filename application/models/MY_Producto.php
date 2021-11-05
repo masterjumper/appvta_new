@@ -16,7 +16,7 @@ Class MY_Producto extends CI_Model
     }
 
    
-    public function get_producto_filtro ($filtro, $limit, $start)
+    public function filtro ($filtro, $limit, $start)
     {
         $this -> db -> select('*');
         $this -> db -> from('producto');
@@ -32,37 +32,41 @@ Class MY_Producto extends CI_Model
         return $query;
     }
 
-    public function get_producto ($idproducto)
+    public function get ($proid)
     {
         $this -> db -> select('*');
         $this -> db -> from('producto');
-        $this -> db -> where('idproducto', $idproducto);
+        $this -> db -> where('proid', $proid);
         $this -> db -> limit(1);
         $query = $this -> db ->get() -> result();
         return $query;
     }
 
-    public function new_producto($idproducto, $productoDescripcion)
+    public function save($proid, $procodbar, $prodsc, $proimp)
     {
         $data = array(
-            'idproducto'  =>$idproducto,
-            'productoDescripcion' =>$productoDescripcion
+            'proid'  =>$proid,
+            'procodbar'  =>$procodbar,
+            'prodsc'  =>$prodsc,
+            'proimp' =>$proimp
         );
         $this -> db -> insert('producto', $data);
     }
 
-    public function set_producto($idproducto, $productoDescripcion)
+    public function set($proid, $procodbar, $prodsc, $proimp)
     {
         $data = array(
-            'productoDescripcion' =>$productoDescripcion
+            'procodbar'  =>$procodbar,
+            'prodsc'  =>$prodsc,
+            'proimp' =>$proimp
         );
-        $this -> db -> where('idproducto', $idproducto);
+        $this -> db -> where('proid', $proid);
         $this -> db -> update('producto', $data);
     }
 
-    public function delete_producto ($idproducto)
+    public function delete ($proid)
     {
-        $this->db->where('idproducto', $idproducto);
+        $this->db->where('proid', $proid);
         $this->db->delete('producto');
 
     }

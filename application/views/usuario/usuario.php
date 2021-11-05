@@ -13,10 +13,6 @@
                 <input class="form-input" type="input" required name="usupass"  value="<?php echo $item->usupass;?>">
             </label>
             <label class="form-label-wrapper">
-                <p class="form-label">Legajo</p>
-                <input class="form-input" type="input" name="usuleg" value="<?php echo $item->usuleg;?>">
-            </label>
-            <label class="form-label-wrapper">
                 <p class="form-label">Nombre</p>
                 <input class="form-input" type="input" required name="usunom" value="<?php echo $item->usunom;?>">
             </label>

@@ -108,15 +108,14 @@ class Usuario extends CI_Controller
     public function save()
     {
         $usuid      = $this->input->post('usuid');
-        $usupass    = $this->input->post('usupass');
-        $usuleg     = trim($this->input->post('usuleg'));
+        $usupass    = $this->input->post('usupass');        
         $usunom     = trim($this->input->post('usunom'));
         $usuape     = trim($this->input->post('usuape'));
         $usumai     = trim($this->input->post('usumai'));
         $gruid      = $this->input->post('gruid');
         $usuest     = $this->input->post('usuest');
 
-        $this->MY_Usuario->update_usuario($usuid, $usupass, $usuleg, $usunom, $usuape, $usumai, $gruid, $usuest);
+        $this->MY_Usuario->update_usuario($usuid, $usupass, $usunom, $usuape, $usumai, $gruid, $usuest);
         $data['titulo'] = 'Usuario';
 
         $this->session->set_flashdata('success', 'Se Actualizo con Exito');
@@ -136,7 +135,7 @@ class Usuario extends CI_Controller
         $usuid      = $this->MY_Ultimos_Numeros->get_Ultimo_Numero('usuario');
         $usuuser    = $this->input->post('usuuser');
         $usupass    = $this->input->post('usupass');
-        $usuleg     = $this->input->post('usuleg');
+        
         $usunom     = $this->input->post('usunom');
         $usuape     = $this->input->post('usuape');
         $usumai     = $this->input->post('usumai');
@@ -144,7 +143,7 @@ class Usuario extends CI_Controller
         $usuest     = $this->input->post('usuest');
 
         //$this->MY_Usuario->new_usuario($usuid,$usuuser, $usupass, $usuleg, $usunom, $usuape, $usumai, $gruid, $usuest, $tarid, $usuidjer);
-        $this->MY_Usuario->new_usuario($usuid,$usuuser, $usupass, $usuleg, $usunom, $usuape, $usumai, $gruid, $usuest);
+        $this->MY_Usuario->new_usuario($usuid,$usuuser, $usupass, $usunom, $usuape, $usumai, $gruid, $usuest);
         $usuid      = $usuid + 1;
         $this->MY_Ultimos_Numeros->update_Ultimo_Numero('usuario', $usuid);
 

@@ -31,8 +31,8 @@
                     <span class="sr-only">Inicio</span>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
-                        <span class="logo-title">Agenda</span>
-                        <span class="logo-subtitle">BBE Desarrollo</span>
+                        <span class="logo-title">APP VTA</span>
+                        <span class="logo-subtitle"> Desarrollo</span>
                     </div>
                 </a>
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
@@ -49,53 +49,8 @@
                         <a href="<?php echo base_url().'Producto/predeterminado'?>">
                             <i class="fa fa-barcode" style="font-size: 24px">&nbsp;</i></span>Productos
                         </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'Grupocrea/predeterminado'?>">
-                            <i class="fa fa-users" style="font-size: 24px">&nbsp;</i></span>Grupos CREA
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'Alimentacion/predeterminado'?>">
-                            <i class="fa fa-envira" style="font-size: 24px">&nbsp;</i></span>Sist. de Alimentacion
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'produccion/predeterminado'?>">
-                            <i class="fa fa-tasks" style="font-size: 24px">&nbsp;</i></span>Sist. de Produccion
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'biotipoanimal/predeterminado'?>">
-                            <i class="fa fa-bullseye" style="font-size: 24px">&nbsp;</i></span>Biotipo Animal
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'destino/predeterminado'?>">
-                            <i class="fa fa-plane" style="font-size: 24px">&nbsp;</i></span>Destino
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'provincia/predeterminado'?>">
-                            <i class="fa fa-flag-o" style="font-size: 24px">&nbsp;</i></span>Provincias
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'localidad/predeterminado'?>">
-                            <i class="fa fa-location-arrow" style="font-size: 24px">&nbsp;</i></span>Localidades
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'rol/predeterminado'?>">
-                            <i class="fa fa-asterisk" style="font-size: 24px">&nbsp;</i></span>Roles
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'persona/predeterminado'?>">
-                            <i class="fa fa-user" style="font-size: 24px">&nbsp;</i></span>Personas
-                        </a>
-                    </li>
-
+                    </li>                   
+<!--
                     <li>
                         <a class="show-cat-btn" href="##">
                             <span class="icon document" aria-hidden="true"></span>Posts
@@ -110,15 +65,18 @@
                             </li>
                         </ul>
                     </li>
+-->
                 </ul>
                 <span class="system-menu__title">Sistema</span>
                 <ul class="sidebar-body-menu">
+                    
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
+                        <!--<a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>-->
                         <a href="<?php echo base_url().'Grupo/predeterminado'?>">
                             <i class="fa fa-users" style="font-size: 24px">&nbsp;</i></span>
                             Grupos de Usuarios</a>
                     </li>
+                    
                     <li>
                         <a href="<?php echo base_url().'Usuario/predeterminado'?>">
                             <i class="fa fa-user" style="font-size: 24px">&nbsp;</i></span>

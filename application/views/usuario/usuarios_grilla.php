@@ -38,8 +38,7 @@
                         &nbsp;
                     </th>
                     <th>Id</th>
-                    <th nowrap="true">Usuario</th>
-                    <th nowrap="true">Legajo</th>
+                    <th nowrap="true">Usuario</th>                    
                     <th nowrap="true">Nombre</th>
                     <th nowrap="true">Apellido</th>
                     <th nowrap="true">Grupo</th>
@@ -84,8 +83,7 @@
                     <tr class="">
                         <td> </td>
                         <td><?php echo $usuario->usuid;?></td>
-                        <td><?php echo $usuario->usuuser ;?></td>
-                        <td><?php echo $usuario->usuleg ;?></td>
+                        <td><?php echo $usuario->usuuser ;?></td>                        
                         <td><?php echo $usuario->usunom; ?></td>
                         <td><?php echo $usuario->usuape; ?></td>
                         <td><?php echo $usuario->grudsc; ?></td>
